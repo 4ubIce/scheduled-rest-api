@@ -3,13 +3,14 @@ package home.kirill.scheduledrestapi.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "patient_note")
 @GenericGenerator(name = "persistGenerator", strategy = "native")
-public class PatientNote {
+public class PatientNote implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,7 +32,7 @@ public class PatientNote {
     @JoinColumn(name = "last_modified_by_user_id")
     private User lastModifiedUser;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 

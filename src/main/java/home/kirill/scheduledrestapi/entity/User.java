@@ -3,12 +3,13 @@ package home.kirill.scheduledrestapi.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "company_user")
 @GenericGenerator(name = "persistGenerator", strategy = "native")
-public class User {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
