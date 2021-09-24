@@ -74,6 +74,7 @@ public class ScheduledTasks {
                             }
                         } else {
                             //ищем у пациента note по логину создавшего его пользователя
+                            //логин пользователя берем из note сторонней системы
                             Optional<PatientNote> optPatientNote = patient.getNotes().stream()
                                     .filter(x -> StringUtils.equalsIgnoreCase(x.getCreatedUser().getLogin(), note.getLogged_user()))
                                     .findFirst();
